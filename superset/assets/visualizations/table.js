@@ -67,7 +67,9 @@ function tableVis(slice, payload) {
         html = tsFormatter(val);
       }
       if (typeof (val) === 'string') {
-        html = `<span class="like-pre">${val}</span>`;
+        html = val.slice(0,5) == "full/" ?
+          `<span class="like-pre"><img src="https://adnow.blob.core.windows.net/image-files/${val}"></span>` :
+          `<span class="like-pre">${val}</span>`;
       }
       if (isMetric) {
         html = slice.d3format(c, val);
